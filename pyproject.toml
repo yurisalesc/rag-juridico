@@ -1,0 +1,56 @@
+[project]
+name = "rag-juridico"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "langchain>=1.5.2",
+    "langchain-community>=0.4.2",
+    "langchain-core>=1.8.4",
+    "langchain-ollama>=1.2.0",
+    "langchain-qdrant>=1.2.0",
+    "langchain-text-splitters>=1.2.0",
+    "pydantic>=2.14.4",
+    "pydantic-settings>=2.16.3",
+    "pypdf>=7.1.1",
+    "qdrant-client>=1.15.1",
+]
+
+[project.scripts]
+rag-juridico = "rag_juridico:main"
+
+[build-system]
+requires = ["uv_build>=0.13.10,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+target-version = "py314"
+line-length = 88
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+warn_unused_configs = true
+
+[dependency-groups]
+dev = [
+    "import-linter>=2.17",
+    "mypy>=2.4.1",
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.5.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.6",
+]
