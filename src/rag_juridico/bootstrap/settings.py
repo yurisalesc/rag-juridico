@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     )
 
     ollama_base_url: str = "http://localhost:11434"
-    ollama_chat_model: str = "qwen2.5:7b"
+    ollama_chat_model: str = "qwen3.5:9b"
     ollama_embedding_model: str = "bge-m3"
 
     qdrant_url: str = "http://localhost:6333"
