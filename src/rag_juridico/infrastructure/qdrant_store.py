@@ -20,11 +20,11 @@ class QdrantEvidenceStore:
                     distance=Distance.COSINE,
                 ),
             )
-            self._store = QdrantVectorStore(
-                client=client,
-                collection_name=collection_name,
-                embeddings=embeddings,
-            )
+        self._store = QdrantVectorStore(
+            client=client,
+            collection_name=collection_name,
+            embedding=embeddings,
+        )
 
     def upsert(self, evidence: list[Evidence]) -> None:
         if not evidence:
