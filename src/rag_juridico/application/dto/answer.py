@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 
-from rag_juridico.domain.entities.evidence import Evidence
+from rag_juridico.domain.evidence import Evidence
 
 
 @dataclass(frozen=True, slots=True)
 class Answer:
     content: str
-    evidence: tuple[Evidence, ...]
+    citations: tuple[Evidence, ...]
     insufficient_evidence: bool = False
